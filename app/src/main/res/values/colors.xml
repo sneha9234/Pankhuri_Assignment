@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f082a8</color>
+    <color name="statusBarColor">#ed4d7f</color>
+    <color name="colorPrimaryVariant">#df3964</color>
+    <color name="colorOnPrimary">#ed5383</color>
+    <color name="colorSecondary">#f4b5cf</color>
+    <color name="colorSecondaryVariant">#f4b1cc</color>
+    <color name="colorOnSecondary">#d75177</color>
+    <color name="colorPrimaryAccent">#fef6f6</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#232323</color>
+    <color name="txtColor">#756767</color>
+</resources>
