@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#f082a8</color>
     <color name="statusBarColor">#ed4d7f</color>
-    <color name="colorPrimaryVariant">#df3964</color>
+    <color name="colorPrimaryVariant">#ed3c64</color>
     <color name="colorOnPrimary">#ed5383</color>
     <color name="colorSecondary">#f4b5cf</color>
     <color name="colorSecondaryVariant">#f4b1cc</color>

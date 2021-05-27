@@ -3,4 +3,7 @@
     <string name="vendor">Vendor</string>
     <string name="ask_pankhuri">Ask Pankhuri</string>
     <string name="get_quote">Get Quote</string>
+    <string name="photos">Photos</string>
+    <string name="videos">Videos</string>
+    <string name="albums">Albums</string>
 </resources>

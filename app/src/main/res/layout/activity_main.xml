@@ -1,291 +1,362 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryAccent"
-    tools:context=".MainActivity">
+    android:fitsSystemWindows="true"
+    tools:context=".Activities.MainActivity">
 
-    <com.emilsjolander.components.StickyScrollViewItems.StickyScrollView
-        android:id="@+id/sticky_scroll"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:background="@color/colorPrimaryAccent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:titleEnabled="false">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/img_back"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="10dp"
+                        android:src="@drawable/back_arrow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/colorOnPrimary" />
+
+                    <ImageView
+                        android:id="@+id/img_bookmark"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="10dp"
+                        android:src="@drawable/bookmark"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/img_share"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/colorOnPrimary" />
+
+                    <ImageView
+                        android:id="@+id/img_share"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="10dp"
+                        android:src="@drawable/share"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/colorOnPrimary" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:elevation="10dp"
+                    app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                    android:outlineAmbientShadowColor="@color/colorOnPrimary"
+                    android:outlineSpotShadowColor="@color/colorOnPrimary"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="60dp"
+                    app:cardElevation="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bar">
+
+                    <ImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:outlineAmbientShadowColor="@color/colorOnPrimary"
+                    android:outlineSpotShadowColor="@color/colorOnPrimary"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="17dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/cardView"
+                    app:layout_constraintEnd_toEndOf="@+id/cardView"
+                    app:layout_constraintStart_toStartOf="@+id/cardView"
+                    app:layout_constraintTop_toTopOf="@+id/cardView"
+                    app:layout_constraintVertical_bias="1.02">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp"
+                        android:text="@string/vendor"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorOnPrimary"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="Prajwal Bhatia"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/cardView"
+                    app:layout_constraintTop_toTopOf="@+id/cardView" />
+
+                <ImageView
+                    android:id="@+id/profession_icon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/camera"
+                    app:layout_constraintStart_toEndOf="@+id/cardView"
+                    app:layout_constraintTop_toBottomOf="@+id/textView"
+                    app:tint="@color/colorOnPrimary" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:text="Photographer"
+                    android:textColor="@color/txtColor"
+                    app:layout_constraintBottom_toBottomOf="@id/profession_icon"
+                    app:layout_constraintStart_toEndOf="@id/profession_icon"
+                    app:layout_constraintTop_toTopOf="@id/profession_icon" />
+
+                <ImageView
+                    android:id="@+id/location_icon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/location"
+                    app:layout_constraintStart_toEndOf="@+id/textView2"
+                    app:layout_constraintTop_toBottomOf="@+id/textView"
+                    app:tint="@color/colorOnPrimary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:text="Mumbai"
+                    android:textColor="@color/txtColor"
+                    app:layout_constraintBottom_toBottomOf="@id/location_icon"
+                    app:layout_constraintStart_toEndOf="@id/location_icon"
+                    app:layout_constraintTop_toTopOf="@id/location_icon" />
+
+                <ImageView
+                    android:id="@+id/experience_icon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/experience"
+                    app:layout_constraintStart_toEndOf="@+id/cardView"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    app:tint="@color/colorOnPrimary" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:text="12 years of experience"
+                    android:textColor="@color/txtColor"
+                    app:layout_constraintBottom_toBottomOf="@id/experience_icon"
+                    app:layout_constraintStart_toEndOf="@id/experience_icon"
+                    app:layout_constraintTop_toTopOf="@id/experience_icon" />
+
+                <TextView
+                    android:id="@+id/no_of_videos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/colorOnSecondary"
+                    app:layout_constraintStart_toEndOf="@+id/cardView"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                <TextView
+                    android:id="@+id/no_of_likes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/colorOnSecondary"
+                    app:layout_constraintStart_toEndOf="@+id/no_of_videos"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="20dp"
+                    android:autoLink="all"
+                    android:linksClickable="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorLink="@color/colorOnSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardView2" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rc_stories"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/description" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:tabIndicatorFullWidth="false"
+            android:paddingVertical="5dp"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:background="@color/white"
+            app:tabIndicatorColor="@color/colorOnSecondary"
+            app:tabTextColor="@color/black"
+            app:tabSelectedTextColor="@color/black"
+            app:tabGravity="fill"
+            app:tabMode="fixed">
+
+                <com.google.android.material.tabs.TabItem
+                    android:text="@string/photos"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+            <com.google.android.material.tabs.TabItem
+                    android:text="@string/videos"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+            <com.google.android.material.tabs.TabItem
+                    android:text="@string/albums"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+        </com.google.android.material.tabs.TabLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/bar"
+            <com.example.pankhuri.ExpandableHeightGridView
+                android:id="@+id/gridView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                android:background="@color/colorOnSecondary"
+                android:horizontalSpacing="2dp"
+                android:numColumns="3"
+                android:padding="2dp"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/img_back"
-                    android:layout_width="50dp"
-                    android:layout_height="60dp"
-                    android:padding="10dp"
-                    android:src="@drawable/back_arrow"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:tint="@color/colorOnPrimary" />
-
-                <ImageView
-                    android:id="@+id/img_bookmark"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:padding="10dp"
-                    android:src="@drawable/bookmark"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/img_share"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:tint="@color/colorOnPrimary" />
-
-                <ImageView
-                    android:id="@+id/img_share"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:padding="10dp"
-                    android:src="@drawable/share"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:tint="@color/colorOnPrimary" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:elevation="10dp"
-                android:outlineAmbientShadowColor="@color/colorOnPrimary"
-                android:outlineSpotShadowColor="@color/colorOnPrimary"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="60dp"
-                app:cardElevation="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bar">
-
-                <ImageView
-                    android:id="@+id/profile_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:elevation="12dp"
-                android:outlineAmbientShadowColor="@color/colorOnPrimary"
-                android:outlineSpotShadowColor="@color/colorOnPrimary"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="12dp"
-                app:layout_constraintBottom_toBottomOf="@+id/cardView"
-                app:layout_constraintEnd_toEndOf="@+id/cardView"
-                app:layout_constraintStart_toStartOf="@+id/cardView"
-                app:layout_constraintTop_toBottomOf="@+id/cardView">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="10dp"
-                    android:paddingVertical="5dp"
-                    android:text="@string/vendor"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorOnPrimary"
-                    android:textStyle="bold" />
-
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:text="Prajwal Bhatia"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/cardView"
-                app:layout_constraintTop_toTopOf="@+id/cardView" />
-
-            <ImageView
-                android:id="@+id/profession_icon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/camera"
-                app:layout_constraintStart_toEndOf="@+id/cardView"
-                app:layout_constraintTop_toBottomOf="@+id/textView"
-                app:tint="@color/colorOnPrimary" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginLeft="2dp"
-                android:text="Photographer"
-                android:textColor="@color/txtColor"
-                app:layout_constraintBottom_toBottomOf="@id/profession_icon"
-                app:layout_constraintStart_toEndOf="@id/profession_icon"
-                app:layout_constraintTop_toTopOf="@id/profession_icon" />
-
-            <ImageView
-                android:id="@+id/location_icon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/location"
-                app:layout_constraintStart_toEndOf="@+id/textView2"
-                app:layout_constraintTop_toBottomOf="@+id/textView"
-                app:tint="@color/colorOnPrimary" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginLeft="2dp"
-                android:text="Mumbai"
-                android:textColor="@color/txtColor"
-                app:layout_constraintBottom_toBottomOf="@id/location_icon"
-                app:layout_constraintStart_toEndOf="@id/location_icon"
-                app:layout_constraintTop_toTopOf="@id/location_icon" />
-
-            <ImageView
-                android:id="@+id/experience_icon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/experience"
-                app:layout_constraintStart_toEndOf="@+id/cardView"
-                app:layout_constraintTop_toBottomOf="@+id/textView2"
-                app:tint="@color/colorOnPrimary" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginLeft="2dp"
-                android:text="12 years of experience"
-                android:textColor="@color/txtColor"
-                app:layout_constraintBottom_toBottomOf="@id/experience_icon"
-                app:layout_constraintStart_toEndOf="@id/experience_icon"
-                app:layout_constraintTop_toTopOf="@id/experience_icon" />
-
-            <TextView
-                android:id="@+id/no_of_videos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/colorOnSecondary"
-                app:layout_constraintStart_toEndOf="@+id/cardView"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-            <TextView
-                android:id="@+id/no_of_likes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/colorOnSecondary"
-                app:layout_constraintStart_toEndOf="@+id/no_of_videos"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-            <TextView
-                android:id="@+id/decription"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/txtColor"
-                android:textColorLink="@color/colorOnPrimary"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardView2" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/stories"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/decription" />
-
-            <FrameLayout
-                android:id="@+id/gallery"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@id/footer"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/stories" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:id="@+id/footer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/txtColor"
-                app:layout_constraintVertical_bias="1"
-                app:layout_constraintBottom_toBottomOf="parent">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gridView"
+                app:layout_constraintVertical_bias="1">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:background="@color/colorPrimaryVariant"
+                    android:gravity="center"
                     android:padding="15dp"
                     android:text="@string/ask_pankhuri"
                     android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:background="@color/colorPrimaryVariant"
-                    android:gravity="center"/>
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:padding="15dp"
                     android:layout_marginStart="0.5dp"
-                    android:text="@string/get_quote"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
+                    android:layout_marginLeft="0.5dp"
+                    android:layout_weight="1"
                     android:background="@color/colorPrimaryVariant"
                     android:gravity="center"
-                    android:layout_marginLeft="0.5dp" />
+                    android:padding="15dp"
+                    android:text="@string/get_quote"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </com.emilsjolander.components.StickyScrollViewItems.StickyScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
